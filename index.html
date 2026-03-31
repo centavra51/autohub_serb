@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-t="head.title">Autohub Serbia — Autoservis u Beogradu | Popravka i održavanje</title>
+    <meta name="description" data-t="head.description"
+        content="Profesionalni autoservis u Beogradu. Dijagnostika, popravka motora, kočnica, vješanja. 10+ godina iskustva. Sertifikovani mehaničari. Radimo sa svim markama.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #1A1A1A;
+            --accent-red: #DC2626;
+            --accent-red-hover: #B91C1C;
+            --accent-orange: #F59E0B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A3A3A3;
+            --text-muted: #737373;
+            --border: #262626;
+
+            --font: 'Inter', sans-serif;
+            --radius: 1.5rem;
+            --radius-sm: 1rem;
+        }
+
+        /* Reset & Base */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: var(--font);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-phone {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            color: var(--text-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-red);
+            color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-red-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--text-muted);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--bg-primary);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .accent {
+            color: var(--accent-red);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--accent-orange);
+            color: #000;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .hero-price-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--accent-red);
+            border-radius: var(--radius-sm);
+        }
+
+        .hero-price-badge .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-price-badge .text {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            color: var(--accent-red);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-red);
+        }
+
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .advantage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            border-color: var(--accent-red);
+        }
+
+        .advantage-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .advantage-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+
+        .about-badge {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            padding: 1rem 1.5rem;
+            background: var(--accent-red);
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h2 span {
+            color: var(--accent-red);
+        }
+
+        .about-text>p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+        }
+
+        .about-feature i {
+            color: var(--accent-red);
+        }
+
+        .about-feature span {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-stars i {
+            color: var(--accent-orange);
+            fill: var(--accent-orange);
+        }
+
+        .review-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .review-author-info h4 {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .review-author-info p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--bg-secondary);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent-red);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--accent-red);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta>p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .cta .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-primary);
+        }
+
+        .cta .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta .btn-primary {
+            background: var(--text-primary);
+            color: var(--accent-red);
+        }
+
+        .cta .btn-primary:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        .footer-links h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+        }
+
+        .footer-contact h4 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item i {
+            color: var(--accent-red);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher:hover {
+            border-color: var(--accent-red);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.25rem;
+            width: 140px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+
+        .lang-switcher.active .lang-dropdown {
+            display: flex;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            color: var(--accent-red);
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .lang-flag {
+            width: 20px;
+            height: 14px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* Appointment Form */
+        .appointment {
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .appointment-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .appointment-form-wrapper {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .appointment-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-red);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .form-success i {
+            width: 64px;
+            height: 64px;
+            color: #10B981;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Mobile Call Button */
+        .mobile-call {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: var(--accent-red);
+            color: var(--text-primary);
+            border-radius: 9999px;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .mobile-call span {
+            display: none;
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* New Sections Styles */
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .process-steps::before {
+                content: '';
+                position: absolute;
+                top: 40px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: var(--border);
+                z-index: 0;
+            }
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            background: var(--accent-red);
+            color: var(--text-primary);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .brands-marquee {
+            width: 100%;
+            padding: 3rem 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brands-track {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .brand-item {
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+            color: var(--accent-red);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
+            color: var(--text-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-section {
+            width: 100%;
+            height: 450px;
+            background: var(--bg-secondary);
+            position: relative;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.5) contrast(1.1) brightness(0.9);
+            transition: filter 0.5s ease;
+        }
+
+        .map-section:hover iframe {
+            filter: grayscale(0) contrast(1) brightness(1);
+        }
+
+        /* Responsive */
+        @media (min-width: 640px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mobile-call span {
+                display: inline;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .advantages-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 2fr;
+            }
+
+            .appointment-container {
+                grid-template-columns: 1fr 1.2fr;
+            }
+        }
+
+        /* Mobile Lang Switcher adjustment */
+        .mobile-lang {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mobile-lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .mobile-lang-btn.active {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="logo_monolith.svg" alt="Autohub Serbia" style="height: 80px; width: auto;">
+            </a>
+
+            <div class="nav-links">
+                <a href="#services" data-t="nav.services">Услуги</a>
+                <a href="#advantages" data-t="nav.advantages">Преимущества</a>
+                <a href="#about" data-t="nav.about">О нас</a>
+                <a href="#reviews" data-t="nav.reviews">Отзывы</a>
+                <a href="#faq" data-t="nav.faq">FAQ</a>
+            </div>
+
+            <div class="nav-cta">
+                <div class="lang-switcher" id="langSwitcher" onclick="toggleLangDropdown()">
+                    <img src="https://flagcdn.com/rs.svg" alt="RS" class="lang-flag" id="currentLangFlag">
+                    <span id="currentLangText">SR</span>
+                    <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-btn active" onclick="changeLanguage('sr')">
+                            <img src="https://flagcdn.com/rs.svg" alt="RS" class="lang-flag">
+                            Srpski
+                        </button>
+                        <button class="lang-btn" onclick="changeLanguage('ru')">
+                            <img src="https://flagcdn.com/ru.svg" alt="RU" class="lang-flag">
+                            Русский
+                        </button>
+                        <button class="lang-btn" onclick="changeLanguage('en')">
+                            <img src="https://flagcdn.com/gb.svg" alt="EN" class="lang-flag">
+                            English
+                        </button>
+                    </div>
+                </div>
+                <a href="tel:+381641234567" class="nav-phone">+381 64 123 4567</a>
+                <a href="#appointment" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;"
+                    data-t="nav.book">
+                    Записаться
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div
+            style="padding: 1.5rem 1.5rem 0.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; width: 100%; display: flex; justify-content: center;">
+            <a href="#" class="logo">
+                <img src="logo.svg" alt="Autohub Serbia" style="height: 120px; width: auto;">
+            </a>
+        </div>
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <i data-lucide="x" style="width: 28px; height: 28px;"></i>
+        </button>
+        <a href="#services" onclick="toggleMobileMenu()" data-t="nav.services">Услуги</a>
+        <a href="#advantages" onclick="toggleMobileMenu()" data-t="nav.advantages">Преимущества</a>
+        <a href="#about" onclick="toggleMobileMenu()" data-t="nav.about">О нас</a>
+        <a href="#reviews" onclick="toggleMobileMenu()" data-t="nav.reviews">Отзывы</a>
+        <a href="#faq" onclick="toggleMobileMenu()" data-t="nav.faq">FAQ</a>
+            <div class="mobile-lang">
+            <button class="mobile-lang-btn active" onclick="changeLanguage('sr')" id="m-lang-sr">SR</button>
+            <button class="mobile-lang-btn" onclick="changeLanguage('ru')" id="m-lang-ru">RU</button>
+            <button class="mobile-lang-btn" onclick="changeLanguage('en')" id="m-lang-en">EN</button>
+        </div>
+        <a href="tel:+381641234567" class="btn btn-primary" data-t="nav.call">Позвонить</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title animate-on-scroll" data-t="hero.title">
+                        Профессиональный <span class="accent">автосервис</span> в Белграде
+                    </h1>
+                    <p class="hero-subtitle animate-on-scroll stagger-1" data-t="hero.subtitle">
+                        Диагностика, ремонт двигателя, электрика, тормоза. Работаем со всеми марками авто. Срочный выезд
+                        при необходимости.
+                    </p>
+                    <div class="hero-ctas animate-on-scroll stagger-2">
+                        <a href="#appointment" class="btn btn-primary" data-t="hero.cta_book">
+                            Записаться на диагностику
+                        </a>
+                        <div style="display: flex; gap: 0.75rem;">
+                            <a href="tel:+381641234567" class="btn btn-secondary">
+                                <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+                                <span data-t="hero.cta_call">Позвонить</span>
+                            </a>
+                            <a href="https://t.me/+381641234567" class="btn btn-secondary"
+                                style="padding: 1rem; width: 56px;" target="_blank">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m22 2-7 20-4-9-9-4Z" />
+                                    <path d="M22 2 11 13" />
+                                </svg>
+                            </a>
+                            <a href="viber://chat?number=%2B381641234567" class="btn btn-secondary"
+                                style="padding: 1rem; width: 56px;" target="_blank">
+                                <i data-lucide="phone-forwarded" style="width: 18px; height: 18px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-stats animate-on-scroll stagger-3">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label" data-t="hero.stat_experience">Лет опыта</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2000+</div>
+                            <div class="stat-label" data-t="hero.stat_repairs">Авто отремонтировано</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label" data-t="hero.stat_emergency">Экстренная помощь</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image animate-on-scroll stagger-2">
+                    <div class="hero-image-wrapper">
+                        <img src="images/oil-change.jpg" alt="Ремонт автомобиля">
+                        <div class="hero-badge" data-t="hero.badge">
+                            <i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+                            Экстренный выезд
+                        </div>
+                        <div class="hero-price-badge">
+                            <div class="price" data-t="hero.price">от €30</div>
+                            <div class="text" data-t="hero.price_text">Диагностика бесплатно</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="services.label">Услуги</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="services.title">Что мы делаем</h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="services.subtitle">Полный спектр услуг
+                    по ремонту и обслуживанию</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll stagger-1">
+                    <div class="service-icon">
+                        <i data-lucide="cpu" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s1_title">Диагностика двигателя</h3>
+                    <p data-t="services.s1_desc">Компьютерная диагностика всех систем автомобиля. Выявляем скрытые
+                        неисправности.</p>
+                    <span class="service-price" data-t="services.s1_price">от €25</span>
+                </div>
+                <div class="service-card animate-on-scroll stagger-2">
+                    <div class="service-icon">
+                        <i data-lucide="cog" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s2_title">Механический ремонт</h3>
+                    <p data-t="services.s2_desc">Ремонт двигателя, КПП, сцепления. Используем оригинальные запчасти.</p>
+                    <span class="service-price" data-t="services.s2_price">от €50</span>
+                </div>
+                <div class="service-card animate-on-scroll stagger-3">
+                    <div class="service-icon">
+                        <i data-lucide="circle-dot" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s3_title">Тормозная система</h3>
+                    <p data-t="services.s3_desc">Замена колодок, дисков, тормозной жидкости. Безопасность превыше всего.
+                    </p>
+                    <span class="service-price" data-t="services.s3_price">от €35</span>
+                </div>
+                <div class="service-card animate-on-scroll stagger-1">
+                    <div class="service-icon">
+                        <i data-lucide="move-vertical" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s4_title">Подвеска и рулевое</h3>
+                    <p data-t="services.s4_desc">Диагностика и ремонт подвески, замена амортизаторов и пружин.</p>
+                    <span class="service-price" data-t="services.s4_price">от €40</span>
+                </div>
+                <div class="service-card animate-on-scroll stagger-2">
+                    <div class="service-icon">
+                        <i data-lucide="droplets" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s5_title">Замена масла и ТО</h3>
+                    <p data-t="services.s5_desc">Замена моторного масла, фильтров, свечей. Плановое обслуживание.</p>
+                    <span class="service-price" data-t="services.s5_price">от €30</span>
+                </div>
+                <div class="service-card animate-on-scroll stagger-3">
+                    <div class="service-icon">
+                        <i data-lucide="zap" style="width: 28px; height: 28px;"></i>
+                    </div>
+                    <h3 data-t="services.s6_title">Электрика и электроника</h3>
+                    <p data-t="services.s6_desc">Ремонт электропроводки, генератора, стартера. Устранение ошибок.</p>
+                    <span class="service-price" data-t="services.s6_price">от €25</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section" id="advantages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="advantages.label">Почему мы</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="advantages.title">Преимущества Autohub
+                </h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="advantages.subtitle">То, что отличает
+                    нас от других автосервисов</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card animate-on-scroll stagger-1">
+                    <div class="advantage-number">15</div>
+                    <h3 data-t="advantages.a1_title">Быстрая диагностика</h3>
+                    <p data-t="advantages.a1_desc">Определяем проблему за 15 минут с помощью современного оборудования.
+                    </p>
+                </div>
+                <div class="advantage-card animate-on-scroll stagger-2">
+                    <div class="advantage-number">100%</div>
+                    <h3 data-t="advantages.a2_title">Сертифицированные механики</h3>
+                    <p data-t="advantages.a2_desc">Наши специалисты прошли обучение у официальных дилеров.</p>
+                </div>
+                <div class="advantage-card animate-on-scroll stagger-3">
+                    <div class="advantage-number">All</div>
+                    <h3 data-t="advantages.a3_title">Все марки авто</h3>
+                    <p data-t="advantages.a3_desc">Ремонтируем европейские, японские, корейские и американские авто.</p>
+                </div>
+                <div class="advantage-card animate-on-scroll stagger-4">
+                    <div class="advantage-number">12</div>
+                    <h3 data-t="advantages.a4_title">Гарантия месяцев</h3>
+                    <p data-t="advantages.a4_desc">Даём письменную гарантию на все виды работ и запчасти.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Work Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="process.label">Как мы работаем</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="process.title">Путь к исправному авто</h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="process.subtitle">Прозрачность и
+                    качество на каждом этапе ремонта</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step animate-on-scroll stagger-1">
+                    <div class="step-number">01</div>
+                    <div class="step-title" data-t="process.step1_title">Диагностика</div>
+                    <div class="step-desc" data-t="process.step1_desc">Тщательно проверяем все узлы и выявляем реальные
+                        причины неисправности.</div>
+                </div>
+                <div class="process-step animate-on-scroll stagger-2">
+                    <div class="step-number">02</div>
+                    <div class="step-title" data-t="process.step2_title">Расчет и сроки</div>
+                    <div class="step-desc" data-t="process.step2_desc">Согласовываем с вами стоимость работ и запчастей
+                        перед началом ремонта.</div>
+                </div>
+                <div class="process-step animate-on-scroll stagger-3">
+                    <div class="step-number">03</div>
+                    <div class="step-title" data-t="process.step3_title">Ремонт</div>
+                    <div class="step-desc" data-t="process.step3_desc">Профессионально выполняем работы с использованием
+                        современного оборудования.</div>
+                </div>
+                <div class="process-step animate-on-scroll stagger-4">
+                    <div class="step-number">04</div>
+                    <div class="step-title" data-t="process.step4_title">Готово</div>
+                    <div class="step-desc" data-t="process.step4_desc">Тестируем автомобиль и выдаем его вам вместе с
+                        актом работ и гарантией.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <img src="images/mechanic-portrait.jpg" alt="Наша команда">
+                    <div class="about-badge" data-t="about.since">С 2014 года</div>
+                </div>
+                <div class="about-text">
+                    <h2 class="animate-on-scroll" data-t="about.title">Autohub — это <span>команда
+                            профессионалов</span></h2>
+                    <p class="animate-on-scroll stagger-1" data-t="about.desc">Мы начали с небольшой мастерской в 2014
+                        году и выросли в один из самых надёжных автосервисов Белграда. Наша цель проста: делать
+                        качественный ремонт по честной цене.</p>
+                    <div class="about-features animate-on-scroll stagger-2">
+                        <div class="about-feature">
+                            <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+                            <span data-t="about.f1">Современное оборудование</span>
+                        </div>
+                        <div class="about-feature">
+                            <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+                            <span data-t="about.f2">Оригинальные запчасти</span>
+                        </div>
+                        <div class="about-feature">
+                            <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+                            <span data-t="about.f3">Комфортная зона ожидания</span>
+                        </div>
+                        <div class="about-feature">
+                            <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+                            <span data-t="about.f4">Бесплатная диагностика</span>
+                        </div>
+                    </div>
+                        <a href="tel:+381641234567" class="btn btn-primary animate-on-scroll stagger-3">
+                            <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+                            <span data-t="about.call_btn">+381 64 123 4567</span>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Brands Specialization -->
+    <section class="brands-marquee">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; text-align: center; color: var(--text-secondary);"
+                    data-t="brands.title">Работаем со всеми ведущими брендами</h3>
+            </div>
+            <div class="brands-track">
+                <div class="brand-item">Mercedes-Benz</div>
+                <div class="brand-item">BMW</div>
+                <div class="brand-item">Audi</div>
+                <div class="brand-item">Volkswagen</div>
+                <div class="brand-item">Toyota</div>
+                <div class="brand-item">Honda</div>
+                <div class="brand-item">Nissan</div>
+                <div class="brand-item">Mazda</div>
+                <div class="brand-item">Hyundai</div>
+                <div class="brand-item">Kia</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section appointment" id="appointment">
+        <div class="container">
+            <div class="appointment-container">
+                <div class="appointment-text">
+                    <span class="section-label animate-on-scroll" data-t="form.label">Онлайн запись</span>
+                    <h2 class="section-title animate-on-scroll stagger-1" data-t="form.title">Запишитесь на сервис прямо
+                        сейчас</h2>
+                    <p class="section-subtitle animate-on-scroll stagger-2" data-t="form.subtitle">Заполните форму, и
+                        наш менеджер свяжется с вами в течение 15 минут для подтверждения времени.</p>
+
+                    <div style="margin-top: 2rem;" class="animate-on-scroll stagger-3">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 40px; height: 40px; background: rgba(220, 38, 38, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-red);">
+                                <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <span data-t="form.benefit1">Мгновенное подтверждение</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 40px; height: 40px; background: rgba(220, 38, 38, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-red);">
+                                <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <span data-t="form.benefit2">Бесплатная консультация</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 40px; height: 40px; background: rgba(220, 38, 38, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-red);">
+                                <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <span data-t="form.benefit3">Скидка 5% при записи с сайта</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appointment-form-wrapper animate-on-scroll stagger-2">
+                    <form id="appointmentForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-t="form.name">Ваше имя</label>
+                                <input type="text" id="name" class="form-control" placeholder="Иван Иванов" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-t="form.phone">Телефон</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+381 64 123 4567"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="car" data-t="form.car">Марка и модель авто</label>
+                                <input type="text" id="car" class="form-control" placeholder="BMW X5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service" data-t="form.service">Тип услуги</label>
+                                <select id="service" class="form-control">
+                                    <option value="diagnostics" data-t="services.s1_title">Диагностика двигателя
+                                    </option>
+                                    <option value="mechanic" data-t="services.s2_title">Механический ремонт</option>
+                                    <option value="brakes" data-t="services.s3_title">Тормозная система</option>
+                                    <option value="suspension" data-t="services.suspension">Подвеска</option>
+                                    <option value="oil" data-t="services.s5_title">Замена масла</option>
+                                    <option value="electric" data-t="services.s6_title">Электрика</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date" data-t="form.date">Желаемая дата</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-t="form.submit">
+                            Записаться на сервис
+                        </button>
+                    </form>
+
+                    <div id="formSuccess" class="form-success">
+                        <i data-lucide="check-circle"></i>
+                        <h3 data-t="form.success_title">Заявка отправлена!</h3>
+                        <p data-t="form.success_text">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+                        <button class="btn btn-secondary" style="margin-top: 1.5rem;" onclick="resetForm()"
+                            data-t="form.back">Назад</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Photo Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="gallery.label">Наши работы</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="gallery.title">Процесс в деталях</h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="gallery.subtitle">Взгляд изнутри на наш
+                    профессиональный подход</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll stagger-1">
+                    <img src="images/process_diag.png" alt="Диагностика электроники">
+                    <div class="gallery-overlay">
+                        <h4 data-t="gallery.i1_title">Компьютерная диагностика</h4>
+                        <p data-t="gallery.i1_desc">Поиск скрытых ошибок в ЭБУ</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll stagger-2">
+                    <img src="images/process_repair.png" alt="Ремонт двигателя">
+                    <div class="gallery-overlay">
+                        <h4 data-t="gallery.i2_title">Обслуживание ДВС</h4>
+                        <p data-t="gallery.i2_desc">Капитальный ремонт и ТО</p>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll stagger-3">
+                    <img src="images/brands_collage.png" alt="Наш сервис">
+                    <div class="gallery-overlay">
+                        <h4 data-t="gallery.i3_title">Современные боксы</h4>
+                        <p data-t="gallery.i3_desc">6 оборудованных подъемников</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="reviews.label">Отзывы</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="reviews.title">Что говорят наши клиенты
+                </h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="reviews.subtitle">Реальные отзывы от
+                    реальных людей</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card animate-on-scroll stagger-1">
+                    <div class="review-stars">
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </div>
+                    <p class="review-text" data-t="reviews.r1_text">"Сломался кондиционер посреди июльской жары. Приехал
+                        утром, к обеду всё починили. Цена оказалась даже ниже, чем озвучили по телефону. Приятно удивлён
+                        честностью!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">АК</div>
+                        <div class="review-author-info">
+                            <h4 data-t="reviews.r1_author">Алексей К.</h4>
+                            <p data-t="reviews.r1_car">Владелец BMW X5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll stagger-2">
+                    <div class="review-stars">
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </div>
+                    <p class="review-text" data-t="reviews.r2_text">"Турист из России, застрял в Белграде с проблемой в
+                        подвеске. Ребята не только быстро всё исправили, но и подробно объяснили, что случилось.
+                        Рекомендую всем!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">ДМ</div>
+                        <div class="review-author-info">
+                            <h4 data-t="reviews.r2_author">Дмитрий М.</h4>
+                            <p data-t="reviews.r2_car">Турист, Москва</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card animate-on-scroll stagger-3">
+                    <div class="review-stars">
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                        <i data-lucide="star" style="width: 18px; height: 18px;"></i>
+                    </div>
+                    <p class="review-text" data-t="reviews.r3_text">"Обслуживаю здесь семейный автопарк уже третий год —
+                        две машины. Всегда чётко, в срок и по справедливой цене. Недавно делали ТО и замену тормозных
+                        дисков."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">ИП</div>
+                        <div class="review-author-info">
+                            <h4 data-t="reviews.r3_author">Игорь П.</h4>
+                            <p data-t="reviews.r3_car">Постоянный клиент</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label animate-on-scroll" data-t="faq.label">FAQ</span>
+                <h2 class="section-title animate-on-scroll stagger-1" data-t="faq.title">Часто задаваемые вопросы</h2>
+                <p class="section-subtitle animate-on-scroll stagger-2" data-t="faq.subtitle">Ответы на популярные
+                    вопросы наших клиентов</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item animate-on-scroll stagger-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-t="faq.q1">Сколько времени занимает диагностика?</span>
+                        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-t="faq.a1">Компьютерная диагностика занимает около 15-20 минут. Полная диагностика всех
+                            систем автомобиля, включая ходовую часть, тормоза и электрику — до 1 часа. Точное время
+                            зависит от марки и модели автомобиля.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll stagger-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-t="faq.q2">Даёте ли вы гарантию на работы?</span>
+                        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-t="faq.a2">Да, мы предоставляем письменную гарантию на все виды работ. Срок гарантии
+                            зависит от типа ремонта: от 3 месяцев на мелкий ремонт до 12 месяцев на капитальный ремонт
+                            двигателя или КПП. Гарантия распространяется как на работу, так и на установленные запчасти.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll stagger-3">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-t="faq.q3">Работаете ли вы с иностранными автомобилями?</span>
+                        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-t="faq.a3">Да, мы работаем со всеми марками автомобилей: европейскими (Mercedes, BMW,
+                            Audi, Volkswagen, Renault, Peugeot), японскими (Toyota, Honda, Nissan, Mazda), корейскими
+                            (Hyundai, Kia) и американскими. Наши механики прошли специализированное обучение.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll stagger-1">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-t="faq.q4">Можно ли привезти свои запчасти?</span>
+                        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-t="faq.a4">Да, вы можете привезти свои запчасти. Однако мы рекомендуем покупать запчасти
+                            через нас — мы
+                            работаем с проверенными поставщиками и даём гарантию на оригинальные детали. Если вы
+                            привозите свои запчасти, гарантия на них не распространяется.</p>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll stagger-2">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-t="faq.q5">Есть ли эвакуатор и помощь на дороге?</span>
+                        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-t="faq.a5">Да, мы предоставляем услуги эвакуации и технической помощи на дороге. Если
+                            ваш автомобиль
+                            сломался в радиусе 30 км от Белграда — мы приедем и поможем. В некоторых случаях ремонт можно
+                            выполнить на месте, иначе эвакуируем автомобиль в сервис.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="animate-on-scroll" data-t="cta.title">Готовы отдать свой автомобиль в надёжные руки?</h2>
+                <p class="animate-on-scroll stagger-1" data-t="cta.subtitle">Позвоните сейчас или приезжайте на
+                    бесплатную диагностику</p>
+                <div class="cta-buttons animate-on-scroll stagger-2">
+                    <a href="tel:+381641234567" class="btn btn-primary">
+                        <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+                        <span data-t="cta.btn_call">Позвонить сейчас</span>
+                    </a>
+                    <a href="#appointment" class="btn btn-secondary">
+                        <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+                        <span data-t="cta.btn_book">Записаться онлайн</span>
+                    </a>
+                </div>
+                <div class="cta-messengers animate-on-scroll stagger-3"
+                    style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                    <a href="https://t.me/+381641234567" class="messenger-link" target="_blank"
+                        style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m22 2-7 20-4-9-9-4Z" />
+                            <path d="M22 2 11 13" />
+                        </svg>
+                    </a>
+                    <a href="viber://chat?number=%2B381641234567" class="messenger-link" target="_blank"
+                        style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                        <i data-lucide="phone-forwarded" style="width: 20px; height: 20px;"></i>
+                    </a>
+                    <a href="https://wa.me/381641234567" class="messenger-link" target="_blank"
+                        style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                        <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                    </a>
+                </div>
+                <style>
+                    .messenger-link:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                        transform: translateY(-3px);
+                        border-color: #fff;
+                    }
+                </style>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="section-header" style="text-align: center; margin-bottom: 0;">
+            <span class="section-label animate-on-scroll" data-t="location.label">Локация</span>
+            <h2 class="section-title animate-on-scroll stagger-1" data-t="location.title">Наш сервис в Белграде</h2>
+        </div>
+    </div>
+    <section class="map-section" id="location">
+        <iframe
+            src="https://www.google.com/maps?q=Belgrade,Serbia&output=embed"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo_monolith.svg" alt="Autohub Serbia" style="height: 80px; width: auto;">
+                    <p data-t="footer.brand_text">Профессиональный автосервис в Белграде. Ремонт и обслуживание автомобилей
+                        всех марок с 2014 года.</p>
+                    <div class="footer-social">
+                        <a href="https://t.me/+381641234567" aria-label="Telegram" target="_blank">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m22 2-7 20-4-9-9-4Z" />
+                                <path d="M22 2 11 13" />
+                            </svg>
+                        </a>
+                        <a href="viber://chat?number=%2B381641234567" aria-label="Viber" target="_blank">
+                            <i data-lucide="phone-forwarded" style="width: 20px; height: 20px;"></i>
+                        </a>
+                        <a href="https://wa.me/381641234567" aria-label="WhatsApp" target="_blank">
+                            <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i data-lucide="instagram" style="width: 20px; height: 20px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-t="footer.services">Услуги</h4>
+                    <ul>
+                        <li><a href="#services" data-t="footer.s1">Диагностика</a></li>
+                        <li><a href="#services" data-t="footer.s2">Механический ремонт</a></li>
+                        <li><a href="#services" data-t="footer.s3">Тормозная система</a></li>
+                        <li><a href="#services" data-t="footer.s4">Подвеска</a></li>
+                        <li><a href="#services" data-t="footer.s5">Замена масла</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-t="footer.company">Компания</h4>
+                    <ul>
+                        <li><a href="#about" data-t="footer.c1">О нас</a></li>
+                        <li><a href="#reviews" data-t="footer.c2">Отзывы</a></li>
+                        <li><a href="#faq" data-t="footer.c3">FAQ</a></li>
+                        <li><a href="#advantages" data-t="footer.c4">Преимущества</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-t="footer.contacts">Контакты</h4>
+                    <div class="footer-contact-item">
+                        <i data-lucide="map-pin" style="width: 18px; height: 18px;"></i>
+                        <span>Nemanjina 4, 11000 Belgrade, Serbia</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
+                        <span>+381 64 123 4567</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+                        <span>info@autohub.rs</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="clock" style="width: 18px; height: 18px;"></i>
+                        <span><span data-t="footer.mon-fri">Пн-Пт</span>: 8:00-18:00, <span
+                                data-t="footer.sat">Сб</span>: 9:00-14:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Autohub Serbia. <span data-t="footer.copyright">Все права защищены.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Call Button -->
+    <a href="tel:+381641234567" class="mobile-call">
+        <i data-lucide="phone" style="width: 24px; height: 24px;"></i>
+        <span data-t="nav.call">Позвонить</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Translations
+        const translations = {
+            ru: {
+                "head.title": "Autohub Serbia — Автосервис в Белграде | Ремонт и обслуживание",
+                "head.description": "Профессиональный автосервис в Белграде. Диагностика, ремонт двигателя, тормозов, подвески. 10+ лет опыта. Сертифицированные механики. Работаем со всеми марками.",
+                "nav.services": "Услуги",
+                "nav.advantages": "Преимущества",
+                "nav.about": "О нас",
+                "nav.reviews": "Отзывы",
+                "nav.faq": "FAQ",
+                "nav.call": "Позвонить",
+                "nav.book": "Записаться",
+                "hero.title": "Профессиональный <span class=\"accent\">автосервис</span> в Белграде",
+                "hero.subtitle": "Диагностика, ремонт двигателя, электрика, тормоза. Работаем со всеми марками авто. Срочный выезд при необходимости.",
+                "hero.cta_book": "Записаться на диагностику",
+                "hero.cta_call": "Позвонить",
+                "hero.stat_experience": "Лет опыта",
+                "hero.stat_repairs": "Авто отремонтировано",
+                "hero.stat_emergency": "Экстренная помощь",
+                "hero.badge": "Экстренный выезд",
+                "hero.price": "от €30",
+                "hero.price_text": "Диагностика бесплатно",
+                "services.label": "Услуги",
+                "services.title": "Что мы делаем",
+                "services.subtitle": "Полный спектр услуг по ремонту и обслуживанию",
+                "services.s1_title": "Диагностика двигателя",
+                "services.s1_desc": "Компьютерная диагностика всех систем автомобиля. Выявляем скрытые неисправности.",
+                "services.s1_price": "от €25",
+                "services.s2_title": "Механический ремонт",
+                "services.s2_desc": "Ремонт двигателя, КПП, сцепления. Используем оригинальные запчасти.",
+                "services.s2_price": "от €50",
+                "services.s3_title": "Тормозная система",
+                "services.s3_desc": "Замена колодок, дисков, тормозной жидкости. Безопасность превыше всего.",
+                "services.s3_price": "от €35",
+                "services.suspension": "Подвеска",
+                "advantages.label": "Почему мы",
+                "advantages.title": "Преимущества Autohub",
+                "advantages.subtitle": "То, что отличает нас от других автосервисов",
+                "advantages.a1_title": "Быстрая диагностика",
+                "advantages.a1_desc": "Определяем проблему за 15 минут с помощью современного оборудования.",
+                "advantages.a2_title": "Сертифицированные механики",
+                "location.label": "Локация",
+                "location.title": "Как нас найти в Белграде",
+                "process.label": "Как мы работаем",
+                "process.title": "Путь к исправному авто",
+                "process.subtitle": "Прозрачность и качество на каждом этапе ремонта",
+                "process.step1_title": "Диагностика",
+                "process.step1_desc": "Тщательно проверяем все узлы и выявляем реальные причины неисправности.",
+                "process.step2_title": "Расчет и сроки",
+                "process.step2_desc": "Согласовываем с вами стоимость работ и запчастей перед началом ремонта.",
+                "process.step3_title": "Ремонт",
+                "process.step3_desc": "Профессионально выполняем работы с использованием современного оборудования.",
+                "process.step4_title": "Готово",
+                "process.step4_desc": "Тестируем автомобиль и выдаем его вам вместе с актом работ и гарантией.",
+                "brands.title": "Работаем со всеми ведущими брендами",
+                "gallery.label": "Наши работы",
+                "gallery.title": "Процесс в деталях",
+                "gallery.subtitle": "Взгляд изнутри на наш профессиональный подход",
+                "gallery.i1_title": "Компьютерная диагностика",
+                "gallery.i1_desc": "Поиск скрытых ошибок в ЭБУ",
+                "gallery.i2_title": "Обслуживание ДВС",
+                "gallery.i2_desc": "Капитальный ремонт и ТО",
+                "gallery.i3_title": "Современные боксы",
+                "gallery.i3_desc": "6 оборудованных подъемников",
+                "advantages.a2_desc": "Наши специалисты прошли обучение у официальных дилеров.",
+                "advantages.a3_title": "Все марки авто",
+                "advantages.a3_desc": "Ремонтируем европейские, японские, корейские и американские авто.",
+                "advantages.a4_title": "Гарантия месяцев",
+                "advantages.a4_desc": "Даём письменную гарантию на все виды работ и запчасти.",
+                "about.badge": "С 2014 года",
+                "about.title": "Autohub — это <span>команда профессионалов</span>",
+                "about.desc": "Мы начали с небольшой мастерской в 2014 году и выросли в один из самых надёжных автосервисов Белграда. Наша цель проста: делать качественный ремонт по честной цене.",
+                "about.f1": "Современное оборудование",
+                "about.f2": "Оригинальные запчасти",
+                "about.f3": "Комфортная зона ожидания",
+                "about.f4": "Бесплатная диагностика",
+                "reviews.label": "Отзывы",
+                "reviews.title": "Что говорят наши клиенты",
+                "reviews.subtitle": "Реальные отзывы от реальных людей",
+                "reviews.r1_text": "\"Сломался кондиционер посреди июльской жары. Приехал утром, к обеду всё починили. Цена оказалась даже ниже, чем озвучили по телефону. Приятно удивлён честностью!\"",
+                "reviews.r1_author": "Алексей К.",
+                "reviews.r1_car": "Владелец BMW X5",
+                "reviews.r2_text": "\"Турист из России, застрял в Белграде с проблемой в подвеске. Ребята не только быстро всё исправили, но и подробно объяснили, что случилось. Рекомендую всем!\"",
+                "reviews.r2_author": "Дмитрий М.",
+                "reviews.r2_car": "Турист, Москва",
+                "reviews.r3_text": "\"Обслуживаю здесь семейный автопарк уже третий год — две машины. Всегда чётко, в срок и по справедливой цене. Недавно делали ТО и замену тормозных дисков.\"",
+                "reviews.r3_author": "Игорь П.",
+                "reviews.r3_car": "Постоянный клиент",
+                "faq.title": "Часто задаваемые вопросы",
+                "faq.subtitle": "Ответы на популярные вопросы наших клиентов",
+                "faq.q1": "Сколько времени занимает диагностика?",
+                "faq.a1": "Компьютерная диагностика занимает около 15-20 минут. Полная диагностика всех систем автомобиля, включая ходовую часть, тормоза и электрику — до 1 часа. Точное время зависит от марки и модели автомобиля.",
+                "faq.q2": "Даёте ли вы гарантию на работы?",
+                "faq.a2": "Да, мы предоставляем письменную гарантию на все виды работ. Срок гарантии зависит от типа ремонта: от 3 месяцев на мелкий ремонт до 12 месяцев на капитальный ремонт двигателя или КПП. Гарантия распространяется как на работу, так и на установленные запчасти.",
+                "faq.q3": "Работаете ли вы с иностранными автомобилями?",
+                "faq.a3": "Да, мы работаем со всеми марками автомобилей: европейскими (Mercedes, BMW, Audi, Volkswagen, Renault, Peugeot), японскими (Toyota, Honda, Nissan, Mazda), корейскими (Hyundai, Kia) и американскими. Наши механики прошли специализированное обучение.",
+                "form.label": "Онлайн запись",
+                "form.title": "Запишитесь на сервис прямо сейчас",
+                "form.subtitle": "Заполните форму, и наш менеджер свяжется с вами в течение 15 минут для подтверждения времени.",
+                "form.benefit1": "Мгновенное подтверждение",
+                "form.benefit2": "Бесплатная консультация",
+                "form.benefit3": "Скидка 5% при записи с сайта",
+                "form.name": "Ваше имя",
+                "form.phone": "Телефон",
+                "form.car": "Марка и модель авто",
+                "form.service": "Тип услуги",
+                "form.date": "Желаемая дата",
+                "form.submit": "Записаться на сервис",
+                "form.success_title": "Заявка отправлена!",
+                "form.success_text": "Мы свяжемся с вами в ближайшее время для уточнения деталей.",
+                "form.back": "Назад",
+                "cta.title": "Готовы отдать свой автомобиль в надёжные руки?",
+                "cta.subtitle": "Позвоните сейчас или приезжайте на бесплатную диагностику",
+                "cta.btn_call": "Позвонить сейчас",
+                "cta.btn_book": "Записаться онлайн",
+                "about.since": "С 2014 года",
+                "about.call_btn": "+381 64 123 4567",
+                "services.s4_title": "Подвеска и рулевое",
+                "services.s4_desc": "Диагностика и ремонт подвески, замена амортизаторов и пружин.",
+                "services.s4_price": "от €40",
+                "services.s5_title": "Замена масла и ТО",
+                "services.s5_desc": "Замена моторного масла, фильтров, свечей. Плановое обслуживание.",
+                "services.s5_price": "от €30",
+                "services.s6_title": "Электрика и электроника",
+                "services.s6_desc": "Ремонт электропроводки, генератора, стартера. Устранение ошибок.",
+                "services.s6_price": "от €25",
+                "faq.label": "FAQ",
+                "faq.q4": "Можно ли привезти свои запчасти?",
+                "faq.a4": "Да, вы можете привезти свои запчасти. Однако мы рекомендуем покупать запчасти через нас — мы работаем с проверенными поставщиками и даём гарантию на оригинальные детали.",
+                "faq.q5": "Есть ли эвакуатор и помощь на дороге?",
+                "faq.a5": "Да, мы предоставляем услуги эвакуации и технической помощи на дороге. Если ваш автомобиль сломался в радиусе 30 км от Белграда — мы приедем и поможем.",
+                "footer.services": "Услуги",
+                "footer.company": "Компания",
+                "footer.contacts": "Контакты",
+                "footer.mon-fri": "Пн-Пт",
+                "footer.sat": "Сб",
+                "footer.copyright": "Все права защищены.",
+                "footer.s1": "Диагностика",
+                "footer.s2": "Механический ремонт",
+                "footer.s3": "Тормозная система",
+                "footer.s4": "Подвеска",
+                "footer.s5": "Замена масла",
+                "footer.c1": "О нас",
+                "footer.c2": "Отзывы",
+                "footer.c3": "FAQ",
+                "footer.c4": "Преимущества",
+                "footer.brand_text": "Профессиональный автосервис в Белграде. Ремонт и обслуживание автомобилей всех марок с 2014 года."
+            },
+            sr: {
+                "head.title": "Autohub Serbia — Autoservis u Beogradu | Popravka i održavanje",
+                "head.description": "Profesionalni autoservis u Beogradu. Dijagnostika, popravka motora, kočnica, vješanja. 10+ godina iskustva. Sertifikovani mehaničari. Radimo sa svim markama.",
+                "nav.services": "Usluge",
+                "nav.advantages": "Prednosti",
+                "nav.about": "O nama",
+                "nav.reviews": "Utisci",
+                "nav.faq": "FAQ",
+                "nav.call": "Pozovite",
+                "nav.book": "Zakažite",
+                "hero.title": "Profesionalni <span class=\"accent\">autoservis</span> u Beogradu",
+                "hero.subtitle": "Dijagnostika, popravka motora, elektrika, kočnice. Radimo sa svim markama automobila. Hitni dolazak po potrebi.",
+                "hero.cta_book": "Zakažite dijagnostiku",
+                "hero.cta_call": "Pozovite",
+                "hero.stat_experience": "Godina iskustva",
+                "hero.stat_repairs": "Popravljenih automobila",
+                "hero.stat_emergency": "Hitna pomoć",
+                "hero.badge": "Hitni izlazak",
+                "hero.price": "od €30",
+                "hero.price_text": "Besplatna dijagnostika",
+                "services.label": "Usluge",
+                "services.title": "Šta radimo",
+                "services.subtitle": "Kompletan spektar usluga popravke i održavanja",
+                "services.s1_title": "Dijagnostika motora",
+                "services.s1_desc": "Kompjuterska dijagnostika svih sistema automobila. Otkrivamo skrivene kvarove.",
+                "services.s1_price": "od €25",
+                "services.s2_title": "Mehaničke popravke",
+                "services.s2_desc": "Popravka motora, mjenjača, kvačila. Koristimo originalne djelove.",
+                "services.s2_price": "od €50",
+                "services.s3_title": "Kočioni sistem",
+                "services.s3_desc": "Zamjena pločica, diskova, kočionog ulja. Bezbjednost na prvom mjestu.",
+                "services.s3_price": "od €35",
+                "services.suspension": "Vješanje",
+                "advantages.label": "Zašto mi",
+                "advantages.title": "Prednosti Autohub-a",
+                "advantages.subtitle": "Ono što nas izdvaja od drugih autoservisa",
+                "advantages.a1_title": "Brza dijagnostika",
+                "advantages.a1_desc": "Utvrđujemo problem za 15 minuta pomoću moderne opreme.",
+                "advantages.a2_title": "Sertifikovani mehaničari",
+                "location.label": "Lokacija",
+                "location.title": "Kako nas naći u Beogradu",
+                "process.label": "Kako radimo",
+                "process.title": "Put do ispravnog auta",
+                "process.subtitle": "Transparentnost i kvalitet u svakoj fazi popravke",
+                "process.step1_title": "Dijagnostika",
+                "process.step1_desc": "Pažljivo provjeravamo sve sisteme i identifikujemo stvarne uzroke kvara.",
+                "process.step2_title": "Proračun i rokovi",
+                "process.step2_desc": "Dogovaramo se sa vama o troškovima rada i djelova prije početka popravke.",
+                "process.step3_title": "Popravka",
+                "process.step3_desc": "Profesionalno izvodimo radove koristeći savremenu opremu.",
+                "process.step4_title": "Spremno",
+                "process.step4_desc": "Testiramo automobil i predajemo vam ga uz izvještaj o radu i garanciju.",
+                "brands.title": "Radimo sa svim vodećim brendovima",
+                "gallery.label": "Naši radovi",
+                "gallery.title": "Proces u detaljima",
+                "gallery.subtitle": "Pogled iznutra na naš profesionalni pristup",
+                "gallery.i1_title": "Kompjuterska dijagnostika",
+                "gallery.i1_desc": "Traženje skrivenih grešaka u ECU",
+                "gallery.i2_title": "Održavanje motora",
+                "gallery.i2_desc": "Glavni remont i servis",
+                "gallery.i3_title": "Savremeni boksevi",
+                "gallery.i3_desc": "6 opremljenih dizalica",
+                "advantages.a2_desc": "Naši stručnjaci su prošli obuku kod zvaničnih dilera.",
+                "advantages.a3_title": "Sve marke vozila",
+                "advantages.a3_desc": "Popravljamo evropska, japanska, korejska i američka vozila.",
+                "advantages.a4_title": "Garancija mjeseci",
+                "advantages.a4_desc": "Dajemo pismenu garanciju na sve radove i djelove.",
+                "about.badge": "Od 2014. godine",
+                "about.title": "Autohub je <span>tim profesionalaca</span>",
+                "about.desc": "Počeli smo kao mala radionica 2014. godine i izrasli u jedan od najpouzdanijih autoservisa u Beogradu. Naš cilj je jednostavan: kvalitetna popravka po poštenoj cijeni.",
+                "about.f1": "Moderna oprema",
+                "about.f2": "Originalni djelovi",
+                "about.f3": "Komforna zona čekanja",
+                "about.f4": "Besplatna dijagnostika",
+                "reviews.label": "Utisci",
+                "reviews.title": "Šta kažu naši klijenti",
+                "reviews.subtitle": "Stvarni utisci od stvarnih ljudi",
+                "reviews.r1_text": "\"Klima se pokvarila usred julske vrućine. Došao sam ujutru, do podne je sve bilo popravljeno. Cijena je bila čak niža nego što su mi rekli telefonom.\"",
+                "reviews.r1_author": "Aleksej K.",
+                "reviews.r1_car": "Vlasnik BMW X5",
+                "reviews.r2_text": "\"Turista iz Rusije, zaglavio u Beogradu sa problemom na vješanju. Momci ne samo da su brzo popravili, već su i detaljno objasnili šta se desilo.\"",
+                "reviews.r2_author": "Dmitrij M.",
+                "reviews.r2_car": "Turista, Moskva",
+                "reviews.r3_text": "\"Ovdje održavam porodični vozni park već treću godinu. Uvijek precizno, na vrijeme i po fer cijeni. Nedavno smo radili servis i zamjenu diskova.\"",
+                "reviews.r3_author": "Igor P.",
+                "reviews.r3_car": "Stalni klijent",
+                "faq.title": "Često postavljana pitanja",
+                "faq.subtitle": "Odgovori na popularna pitanja naših klijenata",
+                "faq.q1": "Koliko traje dijagnostika?",
+                "faq.a1": "Kompjuterska dijagnostika traje oko 15-20 minuta. Kompletna dijagnostika svih sistema traje do 1 sat, zavisno od modela vozila.",
+                "faq.q2": "Da li dajete garanciju na radove?",
+                "faq.a2": "Da, pružamo pismenu garanciju na sve vrste radova. Rok garancije zavisi od tipa popravke, od 3 do 12 mjeseci.",
+                "faq.q3": "Da li radite sa stranim vozilima?",
+                "faq.a3": "Da, radimo sa svim markama: evropskim, japanskim, korejskim i američkim. Naši mehaničari su specijalizovani.",
+                "form.label": "Online zakazivanje",
+                "form.title": "Zakažite servis odmah",
+                "form.subtitle": "Popunite formu i naš menadžer će vas kontaktirati u roku od 15 minuta radi potvrde termina.",
+                "form.benefit1": "Trenutna potvrda",
+                "form.benefit2": "Besplatna konsultacija",
+                "form.benefit3": "5% popusta za online zakazivanje",
+                "form.name": "Vaše ime",
+                "form.phone": "Telefon",
+                "form.car": "Marka i model auta",
+                "form.service": "Vrsta usluge",
+                "form.date": "Željeni datum",
+                "form.submit": "Zakažite servis",
+                "form.success_title": "Prijava poslata!",
+                "form.success_text": "Kontaktiraćemo vas ubrzo radi potvrde detalja.",
+                "form.back": "Nazad",
+                "cta.title": "Spremni da povjerite svoj auto u sigurne ruke?",
+                "cta.subtitle": "Pozovite odmah ili dođite na besplatnu dijagnostiku",
+                "cta.btn_call": "Pozovite odmah",
+                "cta.btn_book": "Zakažite online",
+                "about.since": "Od 2014. godine",
+                "about.call_btn": "+381 64 123 4567",
+                "services.s4_title": "Vješanje i upravljanje",
+                "services.s4_desc": "Dijagnostika i popravka vješanja, zamjena amortizera i opruga.",
+                "services.s4_price": "od €40",
+                "services.s5_title": "Zamjena ulja i servis",
+                "services.s5_desc": "Zamjena motornog ulja, filtera, svjećica. Redovno održavanje.",
+                "services.s5_price": "od €30",
+                "services.s6_title": "Elektrika i elektronika",
+                "services.s6_desc": "Popravka elektroinstalacija, alternatora, startera. Brisanje grešaka.",
+                "services.s6_price": "od €25",
+                "faq.label": "FAQ",
+                "faq.q4": "Mogu li donijeti svoje djelove?",
+                "faq.a4": "Da, možete donijeti svoje djelove. Ipak, preporučujemo kupovinu preko nas — radimo sa provjerenim dobavljačima i dajemo garanciju na originale.",
+                "faq.q5": "Postoji li šlep služba i pomoć na putu?",
+                "faq.a5": "Da, pružamo usluge šlepanja i tehničke pomoći na putu u krugu od 30 km od Beograda.",
+                "footer.services": "Usluge",
+                "footer.company": "Kompanija",
+                "footer.contacts": "Kontakti",
+                "footer.mon-fri": "Pon-Pet",
+                "footer.sat": "Sub",
+                "footer.copyright": "Sva prava zadržana.",
+                "footer.s1": "Dijagnostika",
+                "footer.s2": "Mehaničke popravke",
+                "footer.s3": "Kočioni sistem",
+                "footer.s4": "Vješanje",
+                "footer.s5": "Zamjena ulja",
+                "footer.c1": "O nama",
+                "footer.c2": "Utisci",
+                "footer.c3": "FAQ",
+                "footer.c4": "Prednosti",
+                "footer.brand_text": "Profesionalni autoservis u Beogradu. Popravka i održavanje vozila svih marki od 2014. godine."
+            },
+            en: {
+                "head.title": "Autohub Serbia — Car Service in Belgrade | Repair & Maintenance",
+                "head.description": "Professional car service in Belgrade. Diagnostics, engine repair, brakes, suspension. 10+ years of experience. Certified mechanics. We work with all brands.",
+                "nav.services": "Services",
+                "nav.advantages": "Advantages",
+                "nav.about": "About Us",
+                "nav.reviews": "Reviews",
+                "nav.faq": "FAQ",
+                "nav.call": "Call Us",
+                "nav.book": "Book Now",
+                "hero.title": "Professional <span class=\"accent\">Car Service</span> in Belgrade",
+                "hero.subtitle": "Diagnostics, engine repair, electrics, brakes. We work with all car brands. Emergency assistance when needed.",
+                "hero.cta_book": "Book Diagnostics",
+                "hero.cta_call": "Call Now",
+                "hero.stat_experience": "Years of Experience",
+                "hero.stat_repairs": "Cars Repaired",
+                "hero.stat_emergency": "Emergency Help",
+                "hero.badge": "Emergency Callout",
+                "hero.price": "from €30",
+                "hero.price_text": "Free Diagnostics",
+                "services.label": "Services",
+                "services.title": "What We Do",
+                "services.subtitle": "Full range of car repair and maintenance services",
+                "services.s1_title": "Engine Diagnostics",
+                "services.s1_desc": "Computer diagnostics of all car systems. We identify hidden faults.",
+                "services.s1_price": "from €25",
+                "services.s2_title": "Mechanical Repair",
+                "services.s2_desc": "Engine, gearbox, and clutch repair. We use original spare parts.",
+                "services.s2_price": "from €50",
+                "services.s3_title": "Brake System",
+                "services.s3_desc": "Replacement of pads, discs, and brake fluid. Safety first.",
+                "services.s3_price": "from €35",
+                "services.suspension": "Suspension",
+                "advantages.label": "Why Us",
+                "advantages.title": "Autohub Advantages",
+                "advantages.subtitle": "What sets us apart from other car services",
+                "advantages.a1_title": "Quick Diagnostics",
+                "advantages.a1_desc": "We identify the problem in 15 minutes using modern equipment.",
+                "advantages.a2_title": "Certified Mechanics",
+                "location.label": "Location",
+                "location.title": "How to find us in Belgrade",
+                "process.label": "Our Process",
+                "process.title": "The Way to a Healthy Car",
+                "process.subtitle": "Transparency and quality at every stage of repair",
+                "process.step1_title": "Diagnostics",
+                "process.step1_desc": "Thoroughly check all systems and identify the actual causes of the malfunction.",
+                "process.step2_title": "Quote & Timing",
+                "process.step2_desc": "We agree with you on the cost of work and parts before starting the repair.",
+                "process.step3_title": "Repair",
+                "process.step3_desc": "Professionally perform work using modern equipment.",
+                "process.step4_title": "Ready",
+                "process.step4_desc": "We test the car and hand it over to you with a work report and warranty.",
+                "brands.title": "We work with all leading brands",
+                "gallery.label": "Our Work",
+                "gallery.title": "Process in Details",
+                "gallery.subtitle": "An inside look at our professional approach",
+                "gallery.i1_title": "Computer Diagnostics",
+                "gallery.i1_desc": "Finding hidden errors in ECU",
+                "gallery.i2_title": "Engine Service",
+                "gallery.i2_desc": "Main overhaul and maintenance",
+                "gallery.i3_title": "Modern Bays",
+                "gallery.i3_desc": "6 equipped lifts",
+                "advantages.a2_desc": "Our specialists have been trained by official dealers.",
+                "advantages.a3_title": "All Car Brands",
+                "advantages.a3_desc": "We repair European, Japanese, Korean, and American cars.",
+                "advantages.a4_title": "Months Warranty",
+                "advantages.a4_desc": "We give a written warranty for all types of work and parts.",
+                "about.badge": "Since 2014",
+                "about.title": "Autohub is a <span>Team of Professionals</span>",
+                "about.desc": "We started as a small workshop in 2014 and grew into one of the most reliable car services in Belgrade. Our goal: quality repair at a fair price.",
+                "about.f1": "Modern Equipment",
+                "about.f2": "Original Spare Parts",
+                "about.f3": "Comfortable Waiting Area",
+                "about.f4": "Free Diagnostics",
+                "reviews.label": "Reviews",
+                "reviews.title": "What Our Clients Say",
+                "reviews.subtitle": "Real reviews from real people",
+                "reviews.r1_text": "\"AC broke in the middle of July heat. Came in the morning, everything fixed by noon. The price was even lower than quoted over the phone.\"",
+                "reviews.r1_author": "Alexey K.",
+                "reviews.r1_car": "BMW X5 Owner",
+                "reviews.r2_text": "\"Tourist from Russia, stuck in Belgrade with a suspension issue. The guys fixed it quickly and explained everything in detail. Highly recommend!\"",
+                "reviews.r2_author": "Dmitry M.",
+                "reviews.r2_car": "Tourist, Moscow",
+                "reviews.r3_text": "\"I've been servicing my family fleet here for three years. Always clear, on time, and at a fair price. Recently did a service and disc replacement.\"",
+                "reviews.r3_author": "Igor P.",
+                "reviews.r3_car": "Regular Client",
+                "faq.title": "Frequently Asked Questions",
+                "faq.subtitle": "Answers to our clients' popular questions",
+                "faq.q1": "How long does diagnostics take?",
+                "faq.a1": "Computer diagnostics takes about 15-20 minutes. A full check up to 1 hour, depending on the car make and model.",
+                "faq.q2": "Do you offer a warranty?",
+                "faq.a2": "Yes, we provide a written warranty for all work. The terms range from 3 to 12 months depending on the type of repair.",
+                "faq.q3": "Do you work with foreign cars?",
+                "faq.a3": "Yes, we work with all brands: European, Japanese, Korean, and American. Our mechanics are specialized.",
+                "form.label": "Online Booking",
+                "form.title": "Book Your Service Now",
+                "form.subtitle": "Fill out the form and our manager will contact you within 15 minutes to confirm.",
+                "form.benefit1": "Instant Confirmation",
+                "form.benefit2": "Free Consultation",
+                "form.benefit3": "5% Online Booking Discount",
+                "form.name": "Your Name",
+                "form.phone": "Phone Number",
+                "form.car": "Car Make & Model",
+                "form.service": "Service Type",
+                "form.date": "Preferred Date",
+                "form.submit": "Book Service",
+                "form.success_title": "Request Sent!",
+                "form.success_text": "We will contact you shortly to confirm details.",
+                "form.back": "Back",
+                "cta.title": "Ready to put your car in reliable hands?",
+                "cta.subtitle": "Call now or come for a free diagnostics",
+                "cta.btn_call": "Call Now",
+                "cta.btn_book": "Book Online",
+                "about.since": "Since 2014",
+                "about.call_btn": "+381 64 123 4567",
+                "services.s4_title": "Suspension & Steering",
+                "services.s4_desc": "Suspension diagnostics and repair, replacement of shock absorbers and springs.",
+                "services.s4_price": "from €40",
+                "services.s5_title": "Oil Change & Service",
+                "services.s5_desc": "Engine oil and filter change, spark plug replacement. Scheduled maintenance.",
+                "services.s5_price": "from €30",
+                "services.s6_title": "Electrical & Electronics",
+                "services.s6_desc": "Repair of electrical wiring, generator, and starter. Error code clearing.",
+                "services.s6_price": "from €25",
+                "faq.label": "FAQ",
+                "faq.q4": "Can I bring my own parts?",
+                "faq.a4": "Yes, you can bring your own parts. However, we recommend purchasing through us — we work with trusted suppliers and provide a warranty.",
+                "faq.q5": "Is there a tow truck and roadside assistance?",
+                "faq.a5": "Yes, we provide towing and technical assistance on the road within a 30 km radius of Belgrade.",
+                "footer.services": "Services",
+                "footer.company": "Company",
+                "footer.contacts": "Contacts",
+                "footer.mon-fri": "Mon-Fri",
+                "footer.sat": "Sat",
+                "footer.copyright": "All rights reserved.",
+                "footer.s1": "Diagnostics",
+                "footer.s2": "Mechanical Repair",
+                "footer.s3": "Brake System",
+                "footer.s4": "Suspension",
+                "footer.s5": "Oil Change",
+                "footer.c1": "About Us",
+                "footer.c2": "Reviews",
+                "footer.c3": "FAQ",
+                "footer.c4": "Advantages",
+                "footer.brand_text": "Professional car service in Belgrade. Repair and maintenance since 2014."
+            }
+        };
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Language switching logic
+        let currentLanguage = 'sr'; // Always open in Serbian
+
+        function toggleLangDropdown() {
+            document.getElementById('langSwitcher').classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!document.getElementById('langSwitcher').contains(e.target)) {
+                document.getElementById('langSwitcher').classList.remove('active');
+            }
+        });
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            updateContent();
+
+            // Update dropdown UI
+            const flags = {
+                ru: 'https://flagcdn.com/ru.svg',
+                sr: 'https://flagcdn.com/rs.svg',
+                en: 'https://flagcdn.com/gb.svg'
+            };
+
+            document.getElementById('currentLangFlag').src = flags[lang];
+            document.getElementById('currentLangText').innerText = lang.toUpperCase();
+
+            // Update active state in dropdown
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${lang}'`));
+            });
+
+            // Update mobile active state
+            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.id === `m-lang-${lang}`);
+            });
+
+            // Re-create icons to handle changed titles/alt
+            lucide.createIcons();
+        }
+
+        function updateContent() {
+            const langData = translations[currentLanguage];
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (langData[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = langData[key];
+                    } else if (el.tagName === 'META') {
+                        el.setAttribute('content', langData[key]);
+                    } else if (el.tagName === 'TITLE') {
+                        document.title = langData[key];
+                    } else if (el.tagName === 'SELECT') {
+                        // handled via options
+                    } else {
+                        el.innerHTML = langData[key];
+                    }
+                }
+            });
+
+            // Special handling for placeholders (if not caught)
+            if (langData['form.name']) document.getElementById('name').placeholder = langData['form.name'];
+            if (langData['form.phone']) document.getElementById('phone').placeholder = langData['form.phone'];
+            if (langData['form.car']) document.getElementById('car').placeholder = langData['form.car'];
+        }
+
+        // Form handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<i data-lucide="loader-2" class="spin"></i>';
+            lucide.createIcons();
+
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('appointmentForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }, 1500);
+        }
+
+        function resetForm() {
+            document.getElementById('appointmentForm').style.display = 'block';
+            document.getElementById('formSuccess').style.display = 'none';
+            document.getElementById('appointmentForm').reset();
+        }
+
+        // Run on load
+        window.addEventListener('DOMContentLoaded', () => {
+            changeLanguage(currentLanguage);
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // FAQ toggle
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Scroll animations with IntersectionObserver
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation background on scroll
+        const nav = document.querySelector('.nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.9)';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
